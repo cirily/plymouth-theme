@@ -1,6 +1,13 @@
 # CutefishOS Plymouth Theme
 
-Cutefishos boot background
+Cirily boot background
+
+## Build & Install (To be tested）
+
+```shell
+sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
+dpkg-buildpackage -b -uc -us
+```
 
 ## License
 
