@@ -2,7 +2,7 @@
 
 Cirily boot background
 
-## Build & Install (To be tested）
+## Build & Install (To be tested|For Ubuntu/Debian)
 
 ```shell
 sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
