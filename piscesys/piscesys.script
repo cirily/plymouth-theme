@@ -1,52 +1,54 @@
-/*
+# Load the image of Logo
+logo_image = Image("logo.png");
+# Logo size
+logo_h=logo_image.GetHeight();
+logo_w=logo_image.GetWidth();
+# Create a sprite
+logo_sprite = Sprite(logo_image);
 
-    Copyright (C) 2016 Uri herrera <uri_herrera@nitrux.in>
-    Copyright (C) 2013 Frédéric Gaudet <fred@linuxmint.com>
+# Load the image of Wave
+wave_image = Image("wave.png");
+# Wave size
+wave_h=wave_image.GetHeight();
+wave_w=wave_image.GetWidth();
+# Create a sprite
+wave_sprite = Sprite(wave_image);
 
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; either version 2, or (at your option)
-    any later version.
+# Screen size
+H=Window.GetHeight();
+W=Window.GetWidth();
+background_image = Image("black.png");
+rbackground_image = background_image.Scale((W-logo_w)/2,H);
+background_l = Sprite(rbackground_image);
+background_r = Sprite(rbackground_image);
+black_screen = Sprite(background_image.Scale(W,H));
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program; if not, write to the Free Software
-    Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
-    02111-1307, USA.
-
-    Based on the script written by:
-                Charlie Brej   <cbrej@cs.man.ac.uk>
-                
-*/
-
-/*Colors (RGB) are represented in the following way
-    
-   Where RGB color code is expressed in percentage, i.e., 35, 35, 35 is equal to 0.035 
-
-*/
-
-logo.image = Image("logo.png");
-Window.SetBackgroundTopColor (0.035, 0.035, 0.035);     
-Window.SetBackgroundBottomColor (0.035, 0.035, 0.035);
-logo.sprite = Sprite(logo.image);
-logo.sprite.SetX (Window.GetWidth()  / 2 - logo.image.GetWidth()  / 2);
-logo.sprite.SetY (Window.GetHeight() / 2 - logo.image.GetHeight() / 2);
-logo.sprite.SetOpacity (1);
-logo.sprite.SetZ (10000);
-
-
-fun refresh (){
-  
+# Begin
+black_screen.SetPosition(0,0);
+blsc = 1.0;
+black_screen.SetOpacity(blsc);
+logo_sprite.SetPosition((W-logo_w)/2, (H-logo_h)/2,100);
+background_l.SetPosition(0,0,0);
+background_r.SetPosition((W+logo_w)/2,0,0);
+wave_sprite.SetPosition((W-wave_w)/2, (H-wave_h)/2,-100);
+wave_a = 0;
+wave_T = 80;
+fun refresh_callback ()
+{
+  if(blsc > 0)
+  {
+    blsc = blsc - 0.02;
+    black_screen.SetOpacity(blsc);
+  }
+  wave_sprite.SetX((W-wave_w)/2+wave_a);
+  wave_a = wave_a + 1;
+  if( wave_a > wave_T )
+  {
+    wave_a = 0;
+  }
 }
-
-Plymouth.SetRefreshFunction (refresh);
-
-
-
+  
+Plymouth.SetRefreshFunction (refresh_callback);
 
 #----------------------------------------- Dialogue --------------------------------
 
@@ -132,22 +134,13 @@ fun display_password_callback (prompt, bullets)
 Plymouth.SetDisplayNormalFunction(display_normal_callback);
 Plymouth.SetDisplayPasswordFunction(display_password_callback);
 
-fun progress_callback (duration, progress)
-  {
-      
-  }
-
-Plymouth.SetBootProgressFunction(progress_callback);
-
 #----------------------------------------- Quit --------------------------------
 
 fun quit_callback ()
 {
-    
 }
 
 Plymouth.SetQuitFunction(quit_callback);
-
 
 #----------------------------------------- Message --------------------------------
 

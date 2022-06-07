@@ -1,6 +1,6 @@
-# CutefishOS Plymouth Theme
+# Pisces System Plymouth Theme
 
-Cirily boot background
+Pisces System boot splash.
 
 ## Build & Install (To be tested|For Ubuntu/Debian)
 
@@ -12,3 +12,4 @@ dpkg-buildpackage -b -uc -us
 ## License
 
 This project has been licensed by GPLv3.
+Piscesys Logo has been licensed by CC0 <http://creativecommons.org/publicdomain/zero/1.0/>.

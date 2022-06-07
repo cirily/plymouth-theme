@@ -1,10 +1,10 @@
 [Plymouth Theme]
-Name=Cutefish Text
-Description=CutefishOS
+Name=Piscesys Text
+Description=Piscesys Text
 ModuleName=text
 
 [text]
-title=CutefishOS
+title=Pisces System
 black=0x263238
 white=0xffffff
 brown=0x03A9F4

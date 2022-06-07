@@ -1,0 +1,35 @@
+The default plymouth theme of Pisces System.
+
+-------------------------------------
+Direct installation without using dpkg:
+
+# Copy the files (* For Ubuntu and Ubuntu-based distros)
+# cp ./piscesys/ /lib/plymouth/themes/ -r
+# Copy the files (For other distros)
+cp ./piscesys/ /usr/share/plymouth/themes/ -r
+
+# Set default theme (for preview; this command will NOT rebuild initramfs, so boot up splash will NOT be set with this command.)
+plymouth-set-default-theme piscesys
+
+# Set default theme (this command DO rebuild initramfs thus it could set boot up splash. RUN AT YOUR OWN RISK!)
+# plymouth-set-default-theme piscesys -R
+
+
+-------------------------------------
+Preview: (After the commands above being run)
+# Below should be run in TTY. Ctrl+Alt+F3/F4/F5/F6
+
+# Start plymouth
+plymouthd
+
+# Start preview (After running this command you will be in TTY1. Be ready to Ctrl+Alt+F3/F4/F5/F6 again after previewing.)
+plymouth --show-splash
+
+# Quit preview
+plymouth --quit
+
+
+-------------------------------------
+License: GPLv3 (https://www.gnu.org/licenses/gpl-3.0.html)
+Author: 月読時 (huangzimocp@126.com)
+This project is inspired by Charlie Brej (https://brej.org/blog/?p=158).

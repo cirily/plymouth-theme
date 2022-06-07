@@ -1,6 +1,6 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: cutefish-plymouth-theme
-Source: https://github.com/cutefishos
+Upstream-Name: piscesys-plymouth-theme
+Source: https://github.com/piscesys
 
 Files: *
 Copyright: <years> <put author's name and email here>

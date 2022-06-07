@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=Piscesys
+Description=Default plymouth theme of Pisces system
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/piscesys
+ScriptFile=/usr/share/plymouth/themes/piscesys/piscesys.script
